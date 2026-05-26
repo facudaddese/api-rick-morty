@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'GetSchwifty';
+    src: url('/fonts/get_schwifty.ttf') format('truetype');
+}
+
+*,
+::placeholder {
+    font-family: 'GetSchwifty';
+    letter-spacing: 5px;
+    color: #00bcd4;
+    paint-order: stroke fill;
+    -webkit-text-stroke: .11rem #AADC28;
+    /* #c5eb05 */
+}
