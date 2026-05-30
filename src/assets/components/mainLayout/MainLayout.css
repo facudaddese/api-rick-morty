@@ -9,13 +9,11 @@
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
-
 ::-webkit-scrollbar {
     width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #393939;
-    cursor: pointer;
     border-radius: 4px;
 }

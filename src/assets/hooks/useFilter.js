@@ -1,10 +1,15 @@
 import { useState } from 'react'
 
-export const useFilter = () => {
+export const useFilter = (setPage, initialState = {}) => {
 
-    const [status, setStatus] = useState('');
-    const [species, setSpecies] = useState('');
-    const [gender, setGender] = useState('');
+    const [filters, setFilters] = useState(initialState);
 
-    return { status, species, gender, setStatus, setSpecies, setGender }
+    const handleFilters = (key, value) => {
+        setFilters(prev => ({ ...prev, [key]: value }));
+        setPage(1);
+    }
+
+    const clearFilters = () => setFilters(initialState);
+
+    return { filters, handleFilters, clearFilters }
 }

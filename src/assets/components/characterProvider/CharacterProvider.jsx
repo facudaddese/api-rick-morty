@@ -12,10 +12,11 @@ export const CharacterProvider = ({ children }) => {
     const { debounce } = useDebounce(input);
     const { data, error } = useFetch(`https://rickandmortyapi.com/api/character?page=${page}`);
     const { data: dataSearch, error: errorSearch } = useFetch(`https://rickandmortyapi.com/api/character?page=${page}&name=${debounce}`);
-    const { status, species, gender } = useFilter();
-    const { data: dataFilter, error: errorFilter } = useFetch(`https://rickandmortyapi.com/api/character?page${page}&status=${status}&species=${species}&gender=${gender}`);
-
+    const { filters, handleFilters, clearFilters } = useFilter(setPage, { status: '', species: '', gender: '' });
+    const { status, species, gender } = filters;
+    const hasFilter = !!(status || species || gender);
+    const { data: dataFilter } = useFetch(`https://rickandmortyapi.com/api/character?page=${page}&status=${status}&species=${species}&gender=${gender}`);
     return (
-        <CharacterContext.Provider value={{ data, error, handlePrev, handleNext, dataSearch, errorSearch, input, handleInput, debounce, dataFilter, errorFilter }}>{children}</CharacterContext.Provider>
+        <CharacterContext.Provider value={{ data, error, handlePrev, handleNext, dataSearch, errorSearch, input, handleInput, debounce, dataFilter, filters, handleFilters, hasFilter, clearFilters }}>{children}</CharacterContext.Provider>
     )
 }
