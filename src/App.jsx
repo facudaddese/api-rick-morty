@@ -1,5 +1,5 @@
 import { CharacterProvider } from "./assets/components/characterProvider/CharacterProvider"
-import MainLayoutContainer from "./assets/components/mainLayoutContainer/MainLayoutContainer"
+import MainLayoutContainer from './assets/components/mainLayoutContainer/MainLayoutContainer'
 import Header from './assets/components/header/Header'
 import './App.css'
 
