@@ -1,13 +1,12 @@
 .grid-container {
     grid-template-areas:
-        "header header header"
-        "main main main"
-        "footer footer footer"
+        "header header"
+        "main main"
     ;
-    grid-template-rows: auto 1fr auto;
     background-image: url('./img/img-principal.png');
     background-size: cover;
     background-position: 630px top;
+    grid-template-rows: auto 1fr;
 }
 
 /* .grid-container>*:not(img) {

@@ -1,11 +1,21 @@
 import { CharacterContext } from '../../context/CharacterContext'
-import { useFetch } from '../../hooks/useFetch'
+import { useInput } from '../../hooks/useInput';
+import { useDebounce } from '../../hooks/useDebounce';
+import { useFetch } from '../../hooks/useFetch';
+import { useFilter } from '../../hooks/useFilter';
+import { usePage } from '../../hooks/usePage'
 
 export const CharacterProvider = ({ children }) => {
 
-    const { data, error, loading, handlePrev, handleNext } = useFetch('https://rickandmortyapi.com/api/character');
+    const { page, handlePrev, handleNext, setPage } = usePage();
+    const { input, handleInput } = useInput(setPage);
+    const { debounce } = useDebounce(input);
+    const { data, error } = useFetch(`https://rickandmortyapi.com/api/character?page=${page}`);
+    const { data: dataSearch, error: errorSearch } = useFetch(`https://rickandmortyapi.com/api/character?page=${page}&name=${debounce}`);
+    const { status, species, gender } = useFilter();
+    const { data: dataFilter, error: errorFilter } = useFetch(`https://rickandmortyapi.com/api/character?page${page}&status=${status}&species=${species}&gender=${gender}`);
 
     return (
-        <CharacterContext.Provider value={{data, error, loading, handlePrev, handleNext}}>{children}</CharacterContext.Provider>
+        <CharacterContext.Provider value={{ data, error, handlePrev, handleNext, dataSearch, errorSearch, input, handleInput, debounce, dataFilter, errorFilter }}>{children}</CharacterContext.Provider>
     )
 }

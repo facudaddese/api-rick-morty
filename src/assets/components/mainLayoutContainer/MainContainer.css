@@ -1,10 +1,8 @@
 .main-container {
     grid-template-areas:
-        "header header header"
-        "aside layout layout"
-        "footer footer footer"
+        "btns btns"
+        "layout layout"
     ;
-    grid-template-columns: 350px auto;
 }
 
 ::-webkit-scrollbar {
@@ -13,5 +11,6 @@
 
 ::-webkit-scrollbar-thumb {
     background: #393939;
+    cursor: pointer;
     border-radius: 4px;
 }

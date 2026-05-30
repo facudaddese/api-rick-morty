@@ -1,22 +1,27 @@
-import { useContext } from "react"
-import { CharacterContext } from '../../context/CharacterContext'
 import './MainLayout.css'
-import Button from "../button/Button";
 import CharacterCard from "../characterCard/CharacterCard";
+import Aside from '../aside/Aside';
 
-const MainLayout = () => {
-
-    const { data, handlePrev, handleNext } = useContext(CharacterContext);
-
+const MainLayout = ({ data, dataSearch, input, dataFilter, errorFilter }) => {
     return (
-        <section className="[grid-area:layout] grid character-grid py-1">
-            <Button handle={handlePrev} label={"Anterior"} type={data.info?.prev} />
-            <Button handle={handleNext} label={"Siguiente"} type={data.info?.next} />
-            {
-                data.results?.map(character => (<CharacterCard key={character.id} img={character.image} name={character.name} status={character.status} species={character.species} />))
-            }
-            <Button handle={handlePrev} label={"Anterior"} type={data.info?.prev} />
-            <Button handle={handleNext} label={"Siguiente"} type={data.info?.next} />
+        <section className='grid [grid-area:layout] overflow-hidden section-container'>
+            <Aside dataFilter={dataFilter} errorFilter={errorFilter} />
+            <div className="[grid-area:layout] h-100 overflow-y-auto grid character-grid py-1">
+                {
+                    input
+                        ?
+                        dataSearch.results?.slice(0, 6).filter(character => character.name.toLowerCase().includes(input.trim().toLowerCase())).map(item => (
+                            <CharacterCard key={item.id} img={item.image} name={item.name} status={item.status} species={item.species} />
+                        ))
+                        // :
+                        // dataFilter.results?.length > 0 ?
+                        //     dataFilter.results?.map(item => (
+                        //         <CharacterCard key={item.id} img={item.image} name={item.name} status={item.status} species={item.species} />
+                        //     ))
+                        :
+                        data.results?.slice(0, 6).map(character => (<CharacterCard key={character.id} img={character.image} name={character.name} status={character.status} species={character.species} />))
+                }
+            </div>
         </section>
     )
 }

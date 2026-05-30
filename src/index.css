@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @font-face {
@@ -11,6 +12,10 @@
     letter-spacing: 5px;
     color: #00bcd4;
     paint-order: stroke fill;
-    -webkit-text-stroke: .11rem #AADC28;
+    -webkit-text-stroke: .1rem #AADC28;
     /* #c5eb05 */
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
 }
