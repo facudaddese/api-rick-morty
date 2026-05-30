@@ -1,6 +1,7 @@
 import { useContext } from "react"
-import MainLayout from "../mainLayout/MainLayout"
-import './MainContainer.css'
+import MainLayout from "../mainLayoutgit mv src/assets/components/mainLayoutContainer/mainLayoutContainer.jsx src/assets/components/mainLayoutContainer/mainLayoutContainer_temp.jsx
+/MainLayout"
+import './MainLayoutContainer.css'
 import { CharacterContext } from "../../context/CharacterContext"
 import Button from '../button/Button'
 
