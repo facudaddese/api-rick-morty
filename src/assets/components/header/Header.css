@@ -1,5 +1,6 @@
 .header-container {
     grid-template-areas:
         "header header"
+        "nav nav"
     ;
 }

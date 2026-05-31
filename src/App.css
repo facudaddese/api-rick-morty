@@ -1,14 +1,10 @@
 .grid-container {
     grid-template-areas:
-        "header header"
-        "main main"
+        "header"
+        "main"
     ;
     background-image: url('./img/img-principal.png');
     background-size: cover;
     background-position: 630px top;
     grid-template-rows: auto 1fr;
 }
-
-/* .grid-container>*:not(img) {
-    z-index: 10;
-} */

@@ -1,19 +1,19 @@
 import './Header.css'
-import Nav from '../nav/Nav'
 import logoHeader from '../../../img/logo-header.png'
-import { useContext } from 'react'
-import { CharacterContext } from '../../context/CharacterContext'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
-
-    const { input, handleInput } = useContext(CharacterContext);
-
     return (
-        <header className='grid px-7 items-center [grid-area:header] header-container'>
-            <div className='w-70'>
-                <img src={logoHeader} alt="Logo Rick And Morty" />
+        <header className='grid px-7 items-center [grid-area:header] justify-between header-container'>
+            <div className='w-50'>
+                <Link to="/">
+                    <img src={logoHeader} alt="Logo Rick And Morty" />
+                </Link>
             </div>
-            <Nav input={input} handleInput={handleInput} />
+            <div className='flex gap-10'>
+                <Link to='/episode'>Episode</Link>
+                <Link to='/location'>Location</Link>
+            </div>
         </header>
     )
 }

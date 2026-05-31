@@ -10,13 +10,19 @@ export const CharacterProvider = ({ children }) => {
     const { page, handlePrev, handleNext, setPage } = usePage();
     const { input, handleInput } = useInput(setPage);
     const { debounce } = useDebounce(input);
-    const { data, error } = useFetch(`https://rickandmortyapi.com/api/character?page=${page}`);
-    const { data: dataSearch, error: errorSearch } = useFetch(`https://rickandmortyapi.com/api/character?page=${page}&name=${debounce}`);
     const { filters, handleFilters, clearFilters } = useFilter(setPage, { status: '', species: '', gender: '' });
     const { status, species, gender } = filters;
-    const hasFilter = !!(status || species || gender);
-    const { data: dataFilter } = useFetch(`https://rickandmortyapi.com/api/character?page=${page}&status=${status}&species=${species}&gender=${gender}`);
+
+    const params = new URLSearchParams();
+    params.set('page', page);
+    if (debounce.trim()) params.set('name', debounce.trim());
+    if (status) params.set('status', status);
+    if (species) params.set('species', species);
+    if (gender) params.set('gender', gender);
+
+    const { data, error, loading } = useFetch(`https://rickandmortyapi.com/api/character?${params.toString()}`);
+
     return (
-        <CharacterContext.Provider value={{ data, error, handlePrev, handleNext, dataSearch, errorSearch, input, handleInput, debounce, dataFilter, filters, handleFilters, hasFilter, clearFilters }}>{children}</CharacterContext.Provider>
+        <CharacterContext.Provider value={{ data, error, loading, handlePrev, handleNext, input, handleInput, debounce, filters, handleFilters, clearFilters }}>{children}</CharacterContext.Provider>
     )
 }

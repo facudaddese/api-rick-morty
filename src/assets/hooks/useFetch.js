@@ -13,7 +13,7 @@ export const useFetch = (url) => {
             setError("");
             try {
                 const res = await fetch(`${url}`, { signal: controller.signal })
-                if (!res.ok) throw new Error("Error al conectarse con la API");
+                if (!res.ok) throw new Error("No se encontraron personajes");
                 const data = await res.json();
                 setData({ ...data ?? {} });
             } catch (error) {
