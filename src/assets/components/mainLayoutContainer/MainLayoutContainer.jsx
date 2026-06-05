@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import Home from '../home/Home'
-import './MainLayoutContainer.css'
 import { CharacterContext } from "../../context/CharacterContext"
 import Button from '../button/Button'
 import Nav from '../nav/Nav'

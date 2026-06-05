@@ -15,13 +15,7 @@ const AsideEpisode = ({ episodes, setEpisode }) => {
                         </Disclosure.Button>
                         <Disclosure.Panel className="flex flex-col gap-2">
                             {episodes?.map(ep => (
-                                <button
-                                    key={ep.id}
-                                    onClick={() => setEpisode(ep)}
-                                    className="text-left text-white/80 hover:text-white cursor-pointer"
-                                >
-                                    Episode {ep.id}
-                                </button>
+                                <button key={ep.id} onClick={() => setEpisode(ep)} className="text-left text-white/80 hover:text-white cursor-pointer">Episode {ep.id}</button>
                             ))}
                         </Disclosure.Panel>
                     </div>

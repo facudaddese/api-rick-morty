@@ -21,7 +21,7 @@ const Episode = () => {
             <div className="[grid-area:episodes]">
                 <div className="flex flex-col items-center justify-center gap-3 pb-4">
                     <h1 className="text-center">Episode name: {currentEpisode?.name}</h1>
-                    <strong>Air date:{currentEpisode?.air_date}</strong>
+                    <h2>Air date:{currentEpisode?.air_date}</h2>
                 </div>
                 <div className='grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-114 overflow-y-auto'>
                     {
