@@ -1,31 +1,33 @@
-import { useFetch } from "../../hooks/useFetch"
-import { usePage } from "../../hooks/usePage";
-// import Aside from "../aside/Aside";
+import { useState } from 'react';
+import { useAllPages } from '../../hooks/useAllPages'
+import AsideEpisode from "../asideEpisode/AsideEpisode";
+import { useFetch } from '../../hooks/useFetch'
+import CharacterCard from '../characterCard/CharacterCard';
 
 const Episode = () => {
 
-    const { page } = usePage();
-    const { data, error, loading } = useFetch(`https://rickandmortyapi.com/api/episode?page=${page}`);
+    const { data: episodes, error, loading } = useAllPages(`https://rickandmortyapi.com/api/episode`);
+    const [episode, setEpisode] = useState(null);
+    const currentEpisode = episode || episodes[0];
+    const id = currentEpisode?.characters.map(url => url.split("/").pop()).join(',');
+    const { data: character } = useFetch(`https://rickandmortyapi.com/api/character/${id}`);
 
-    if (loading) return <p>Loading episodes...</p>
     if (error) return <p>{error}</p>
+    if (loading) return <p>Loading episodes...</p>
 
     return (
-        <section className="grid [grid-template-areas:'aside_layout'] grid-cols-[250px_1fr] overflow-hidden">
-            <aside className="[grid-area:aside] px-5 flex flex-col items-center justify-around h-95 overflow-hidden overflow-y-auto gap-4 py-4 w-65">Episode</aside>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-146 overflow-y-auto py-1">
-                {
-                    data.results?.map(ep => (
-                        <div key={ep.id} className="flex flex-col items-center">
-                            <h1 className="text-center py-4">Episode name: {ep.name}</h1>
-                            <strong>Air date:{ep.air_date}</strong>
-                            <div>
-                                {console.log(ep.characters)
-                                }    
-                            </div>
-                        </div>
-                    ))
-                }
+        <section className="grid [grid-template-areas:'aside_episodes'] grid-cols-[250px_1fr] overflow-hidden h-147">
+            <AsideEpisode episodes={episodes} setEpisode={setEpisode} />
+            <div className="[grid-area:episodes]">
+                <div className="flex flex-col items-center justify-center gap-3 pb-4">
+                    <h1 className="text-center">Episode name: {currentEpisode?.name}</h1>
+                    <strong>Air date:{currentEpisode?.air_date}</strong>
+                </div>
+                <div className='grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-114 overflow-y-auto'>
+                    {
+                        Object.values(character).map(c => (<CharacterCard key={c.id} img={c.image} name={c.name} status={c.status} species={c.species} />))
+                    }
+                </div>
             </div>
         </section>
     )

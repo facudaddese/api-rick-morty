@@ -13,7 +13,7 @@ export const useFetch = (url) => {
             setError("");
             try {
                 const res = await fetch(`${url}`, { signal: controller.signal })
-                if (!res.ok) throw new Error("No se encontraron personajes");
+                if (!res.ok) throw new Error("No characters found");
                 const data = await res.json();
                 setData({ ...data ?? {} });
             } catch (error) {
