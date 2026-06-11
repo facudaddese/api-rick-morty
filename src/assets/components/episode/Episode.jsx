@@ -3,6 +3,7 @@ import { useAllPages } from '../../hooks/useAllPages'
 import AsideEpisode from "../asideEpisode/AsideEpisode";
 import { useFetch } from '../../hooks/useFetch'
 import CharacterCard from '../characterCard/CharacterCard';
+import './Episode.css'
 
 const Episode = () => {
 
@@ -10,20 +11,20 @@ const Episode = () => {
     const [episode, setEpisode] = useState(null);
     const currentEpisode = episode || episodes[0];
     const id = currentEpisode?.characters.map(url => url.split("/").pop()).join(',');
-    const { data: character } = useFetch(`https://rickandmortyapi.com/api/character/${id}`);
+    const { data: character } = useFetch(id ? `https://rickandmortyapi.com/api/character/${id}` : null);
 
     if (error) return <p>{error}</p>
     if (loading) return <p>Loading episodes...</p>
 
     return (
-        <section className="grid [grid-template-areas:'aside_episodes'] grid-cols-[250px_1fr] overflow-hidden h-147">
+        <section className="grid [grid-template-areas:'aside_episodes'] grid-cols-[250px_1fr] overflow-hidden h-147 section-episode">
             <AsideEpisode episodes={episodes} setEpisode={setEpisode} />
             <div className="[grid-area:episodes]">
                 <div className="flex flex-col items-center justify-center gap-3 pb-4">
                     <h1 className="text-center">Episode name: {currentEpisode?.name}</h1>
                     <h2>Air date:{currentEpisode?.air_date}</h2>
                 </div>
-                <div className='grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-114 overflow-y-auto'>
+                <div className='grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-114 overflow-y-auto home-episode'>
                     {
                         Object.values(character).map(c => (<CharacterCard key={c.id} img={c.image} name={c.name} status={c.status} species={c.species} />))
                     }

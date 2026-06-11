@@ -1,0 +1,16 @@
+@media (max-width:1480px) {
+    .section-episode {
+        min-height: 87vh;
+    }
+
+    .home-episode {
+        min-height: 72vh;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width:1024px) {
+    .section-episode {
+        min-height: 85vh;
+    }
+}

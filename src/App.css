@@ -8,3 +8,45 @@
     background-position: 630px top;
     grid-template-rows: auto 1fr;
 }
+
+@media (max-width:1480px) {
+    .grid-container {
+        background-position: 490px top;
+    }
+}
+
+@media (max-width:1440px) {
+    .grid-container {
+        background-position: 450px top;
+    }
+}
+
+@media (max-width:1024px) {
+    .grid-container {
+        background-position: 180px top;
+    }
+}
+
+@media (max-width:768px) {
+    .grid-container {
+        background-position: 130px top;
+    }
+}
+
+@media (max-width:700px) {
+    .grid-container {
+        background-position: -100px center;
+    }
+}
+
+@media (max-width:540px) {
+    .grid-container {
+        background-position: -270px center;
+    }
+}
+
+@media (max-width:425px) {
+    .grid-container {
+        background-position: -405px center;
+    }
+}

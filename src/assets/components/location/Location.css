@@ -1,0 +1,25 @@
+@media (max-width:1480px) {
+    .section-location {
+        min-height: 87vh;
+    }
+
+    .home-location {
+        min-height: 68vh;
+    }
+}
+
+@media (max-width:1024px) {
+    .section-location {
+        min-height: 85vh;
+    }
+
+    .home-location {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width:768px) {
+    .home-location {
+        min-height: 10vh;
+    }
+}

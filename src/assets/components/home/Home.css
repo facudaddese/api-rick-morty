@@ -6,3 +6,35 @@
     background: #393939;
     border-radius: 4px;
 }
+
+@media (max-width:1480px) {
+    .home {
+        min-height: 72vh;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width:1024px) {
+    .home {
+        min-height: 69vh;
+    }
+}
+
+@media (max-width:768px) {
+    .section-home {
+        height: 62vh;
+    }
+}
+
+@media (max-width:700px) {
+    .section-home {
+        grid-template-areas:
+            "layout layout"
+        ;
+        height: 70vh;
+    }
+
+    .aside {
+        display: none;
+    }
+}
