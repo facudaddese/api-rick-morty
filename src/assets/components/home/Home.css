@@ -32,27 +32,16 @@
 
 @media (max-width:768px) {
     .section-home {
-        height: 62vh;
-    }
-
-    .home {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
-
-@media (max-width:700px) {
-    .section-home {
         grid-template-areas:
-            "layout layout"
-        ;
-        height: 70vh;
-    }
-
-    .home {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            "aside aside"
+            "layout layout";
+        grid-template-rows: auto 1fr;
     }
 
     .aside {
-        display: none;
+        width: 100%;
+        height: 280px;
+        padding: 0 50px;
+        gap: 2px;
     }
 }

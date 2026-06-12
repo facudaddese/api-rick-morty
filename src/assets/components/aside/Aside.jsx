@@ -22,8 +22,8 @@ const Aside = ({ handleFilters, clearFilters, filters: filtersChecked }) => {
     return (
         <aside className="[grid-area:aside] px-5 flex flex-col self-center h-95 overflow-hidden overflow-y-auto  gap-4 py-4 w-65 aside">
             <div className='text-center'>
-                <h2 className="text-[22px] pb-4">Filters</h2>
-                <span className='cursor-pointer hover:underline' onClick={clearFilters}>Clear filters</span>
+                <h2 className="text-[22px] py-4">Filters</h2>
+                <span className='cursor-pointer underline' onClick={clearFilters}>Clear filters</span>
             </div>
             {
                 filters.map(filter => (

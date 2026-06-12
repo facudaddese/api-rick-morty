@@ -4,13 +4,17 @@
     }
 
     .home-location {
-        min-height: 68vh;
+        height: 73vh;
     }
 }
 
 @media (max-width:1024px) {
     .section-location {
-        min-height: 85vh;
+        min-height: 84vh;
+    }
+
+    .home-location {
+        height: 70vh;
     }
 
     .home-location {
@@ -18,8 +22,27 @@
     }
 }
 
-@media (max-width:768px) {
-    .home-location {
-        min-height: 10vh;
+@media (max-width: 768px) {
+    .section-location {
+        grid-template-areas:
+            "aside aside"
+            "locations locations";
+        grid-template-rows: auto 1fr;
+        height: 100%;
+    }
+
+    .section-location:first-child {
+        padding: 0;
+    }
+
+    aside>div>h2{
+        padding-top: 25px;
+    }
+
+    .aside-location {
+        width: 100%;
+        height: 150px;
+        padding: 0 50px;
+        gap: 2px;
     }
 }

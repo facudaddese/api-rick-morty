@@ -20,7 +20,7 @@ const Episode = () => {
         <section className="grid grid-cols-[250px_1fr] h-150 overflow-hidden section-episode">
             <AsideEpisode episodes={episodes} setEpisode={setEpisode} />
             <div className="[grid-area:episodes] h-full min-h-0 py-3">
-                <div className="flex flex-col items-center justify-center gap-3 pb-4">
+                <div className="flex flex-col items-center justify-center gap-3 pb-4 info-container">
                     <h1 className="text-center">Episode: {currentEpisode?.name}</h1>
                     <h2>Air date: {currentEpisode?.air_date}</h2>
                 </div>

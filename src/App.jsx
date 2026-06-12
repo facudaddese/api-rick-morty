@@ -9,7 +9,7 @@ import Location from "./assets/components/location/Location"
 function App() {
   return (
     <CharacterProvider>
-      <div className="grid grid-container min-h-screen overflow-hidden">
+      <div className="grid grid-container min-h-screen">
         <Header />
         <main className="[grid-area:main] px-2">
           <Routes>
