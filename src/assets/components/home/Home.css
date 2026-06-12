@@ -20,9 +20,23 @@
     }
 }
 
+@media (max-width:880px) {
+    .home {
+        min-height: 72vh;
+    }
+
+    .character-img {
+        width: 150px;
+    }
+}
+
 @media (max-width:768px) {
     .section-home {
         height: 62vh;
+    }
+
+    .home {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
 
@@ -32,6 +46,10 @@
             "layout layout"
         ;
         height: 70vh;
+    }
+
+    .home {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
     .aside {

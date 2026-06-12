@@ -43,10 +43,26 @@
     .grid-container {
         background-position: -270px center;
     }
+
+    .btn {
+        width: 110px;
+    }
 }
 
-@media (max-width:425px) {
+@media (max-width:426px) {
     .grid-container {
-        background-position: -405px center;
+        background-position: -350px center;
+    }
+}
+
+@media (max-width:376px) {
+    .grid-container {
+        background-position: -390px center;
+    }
+}
+
+@media (max-width:320px) {
+    .grid-container {
+        background-position: -450px center;
     }
 }

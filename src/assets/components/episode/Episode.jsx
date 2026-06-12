@@ -17,14 +17,14 @@ const Episode = () => {
     if (loading) return <p>Loading episodes...</p>
 
     return (
-        <section className="grid [grid-template-areas:'aside_episodes'] grid-cols-[250px_1fr] overflow-hidden h-147 section-episode">
+        <section className="grid grid-cols-[250px_1fr] h-150 overflow-hidden section-episode">
             <AsideEpisode episodes={episodes} setEpisode={setEpisode} />
-            <div className="[grid-area:episodes]">
+            <div className="[grid-area:episodes] h-full min-h-0 py-3">
                 <div className="flex flex-col items-center justify-center gap-3 pb-4">
-                    <h1 className="text-center">Episode name: {currentEpisode?.name}</h1>
-                    <h2>Air date:{currentEpisode?.air_date}</h2>
+                    <h1 className="text-center">Episode: {currentEpisode?.name}</h1>
+                    <h2>Air date: {currentEpisode?.air_date}</h2>
                 </div>
-                <div className='grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-114 overflow-y-auto home-episode'>
+                <div className='grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-125 overflow-y-auto overflow-x-hidden home-episode'>
                     {
                         Object.values(character).map(c => (<CharacterCard key={c.id} img={c.image} name={c.name} status={c.status} species={c.species} />))
                     }

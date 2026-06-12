@@ -1,16 +1,64 @@
+.section-episode {
+    grid-template-areas:
+        "aside episodes"
+    ;
+}
+
 @media (max-width:1480px) {
     .section-episode {
-        min-height: 87vh;
+        height: 87vh;
     }
 
     .home-episode {
-        min-height: 72vh;
+        height: 77vh;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
 
 @media (max-width:1024px) {
     .section-episode {
-        min-height: 85vh;
+        height: 85vh;
+    }
+
+    .home-episode {
+        height: 72vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-episode {
+        height: 80vh;
+    }
+
+    .home-episode {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        height: 60vh;
+    }
+}
+
+@media (max-width:700px) {
+    .aside-episode {
+        display: none;
+    }
+}
+
+@media (max-width:700px) {
+    .section-episode {
+        height: 75vh;
+        grid-template-areas:
+            "episodes"
+        ;
+        grid-template-columns: 1fr;
+    }
+
+    .grid-container {
+        background-position: -1px center;
+    }
+}
+
+@media (max-width:426px) {
+    .home-episode {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        height: 60vh;
     }
 }

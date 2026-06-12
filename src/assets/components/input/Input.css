@@ -1,0 +1,11 @@
+@media (max-width:700px) {
+    .input {
+        padding: 40px 0 20px 0;
+    }
+}
+
+@media (max-width:425px) {
+    .input>input {
+        width: 100%;
+    }
+}

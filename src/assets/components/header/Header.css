@@ -1,7 +1,7 @@
 .header-container {
     grid-template-areas:
         "header header"
-        "nav nav"
+        "input input"
     ;
 }
 
@@ -9,7 +9,7 @@
     .header-container {
         grid-template-areas:
             "header"
-            "nav"
+            "input"
         ;
         grid-auto-flow: column;
         justify-items: center;

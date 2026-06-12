@@ -11,8 +11,8 @@ const Header = () => {
                 </Link>
             </div>
             <div className='flex justify-center gap-10'>
-                <Link to='/episode'>Episode</Link>
-                <Link to='/location'>Location</Link>
+                <Link className='hover:underline' to='/episode'>Episode</Link>
+                <Link className='hover:underline' to='/location'>Location</Link>
             </div>
         </header>
     )
