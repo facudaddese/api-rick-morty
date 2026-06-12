@@ -1,6 +1,3 @@
-Welcome file
-Welcome file
-
 # Rick and Morty Multiverse
 
 Aplicación web desarrollada con **React** y **Tailwind CSS** que permite explorar el universo de Rick and Morty consumiendo datos desde su API oficial. Los usuarios pueden buscar personajes por nombre, filtrarlos por estado, especie y género, navegar entre páginas de resultados y consultar información detallada sobre episodios y ubicaciones de la serie. [Ver sitio](https://rickmorty-multiverse.vercel.app/)
