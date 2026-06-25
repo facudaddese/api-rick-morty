@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAllPages } from '../../hooks/useAllPages'
+import {useAllPages} from '../../hooks/useAllPages'
 import AsideEpisode from "../asideEpisode/AsideEpisode";
 import { useFetch } from '../../hooks/useFetch'
 import CharacterCard from '../characterCard/CharacterCard';

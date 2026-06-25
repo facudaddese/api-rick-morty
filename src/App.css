@@ -3,7 +3,7 @@
         "header"
         "main"
     ;
-    background-image: url('./img/img-principal.png');
+    background-image: url('./assets/img/img-principal.png');
     background-size: cover;
     background-position: 630px top;
     grid-template-rows: auto 1fr;

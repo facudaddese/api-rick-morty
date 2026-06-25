@@ -1,10 +1,10 @@
-import { CharacterProvider } from "./assets/components/characterProvider/CharacterProvider"
-import MainLayoutContainer from './assets/components/mainLayoutContainer/MainLayoutContainer'
-import Header from './assets/components/header/Header'
+import { CharacterProvider } from './components/characterProvider/CharacterProvider'
+import MainLayoutContainer from './components/mainLayoutContainer/MainLayoutContainer'
+import Header from './components/header/Header'
+import Episode from "./components/episode/Episode"
+import Location from "./components/location/Location"
 import './App.css'
 import { Route, Routes } from "react-router-dom"
-import Episode from "./assets/components/episode/Episode"
-import Location from "./assets/components/location/Location"
 
 function App() {
   return (
