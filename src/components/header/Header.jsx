@@ -10,7 +10,7 @@ const Header = () => {
                     <img src={logoHeader} alt="Logo Rick And Morty" />
                 </Link>
             </div>
-            <div className='flex justify-center gap-10'>
+            <div className='flex justify-center gap-10 ancor-container'>
                 <Link className='hover:underline' to='/episode'>Episode</Link>
                 <Link className='hover:underline' to='/location'>Location</Link>
             </div>

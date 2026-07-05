@@ -17,15 +17,15 @@ const Location = () => {
     if (loading) return <p>Loading locations...</p>
 
     return (
-        <section className="grid [grid-template-areas:'aside_locations'] grid-cols-[250px_1fr] overflow-hidden h-150 section-location">
+        <section className="grid [grid-template-areas:'aside_locations'] h-full grid-cols-[250px_1fr] overflow-hidden section-location">
             <AsideLocation locations={locations} setLocation={setLocation} />
             <div className="[grid-area:locations] h-full min-h-0">
                 <div className="flex flex-col items-center justify-center gap-3 pb-4 info-container">
-                    <h1 className="text-center">Location: {currentLocation?.name}</h1>
-                    <h2>Dimension: {currentLocation?.dimension}</h2>
-                    <h2>Type: {currentLocation?.type}</h2>
+                    <h1 className="text-center"><span className="underline">Location</span>: {currentLocation?.name}</h1>
+                    <h2><span className="underline">Dimension</span>: {currentLocation?.dimension}</h2>
+                    <h2><span className="underline">Type</span>: {currentLocation?.type}</h2>
                 </div>
-                <div className='grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-115 overflow-y-auto overflow-x-hidden home-location'>
+                <div className='grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-167 overflow-y-auto overflow-x-hidden home-location'>
                     {
                         Object.values(residents).map(character => (
                             <CharacterCard key={character.id} img={character.image} name={character.name} status={character.status} species={character.species} />

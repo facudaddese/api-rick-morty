@@ -1,48 +1,46 @@
-@media (max-width:1480px) {
-    .section-location {
-        min-height: 87vh;
-    }
-
-    .home-location {
-        height: 73vh;
-    }
+@media (max-width: 1440px) {
+  .home-location {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 
-@media (max-width:1024px) {
-    .section-location {
-        min-height: 84vh;
-    }
-
-    .home-location {
-        height: 70vh;
-    }
-
-    .home-location {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
+@media (max-width: 1024px) {
+  .home-location {
+    height: 70vh;
+  }
 }
 
 @media (max-width: 768px) {
-    .section-location {
-        grid-template-areas:
-            "aside aside"
-            "locations locations";
-        grid-template-rows: auto 1fr;
-        height: 100%;
-    }
+  .section-location {
+    grid-template-areas:
+    "aside aside"
+    "locations locations";
+    grid-template-rows: auto 1fr;
+  }
+  
+  .home-location {
+    height: 58vh;
+  }
+  
+  .section-location:first-child {
+    padding: 0;
+  }
+  
+  .aside-location {
+    width: 100%;
+    height: 100px;
+    padding: 10px 50px 0 50px;
+    gap: 2px;
+  }
+  
+  .info-container {
+    padding: 10px 0;
+    text-align: center;
+  }
+}
 
-    .section-location:first-child {
-        padding: 0;
-    }
-
-    aside>div>h2{
-        padding-top: 25px;
-    }
-
-    .aside-location {
-        width: 100%;
-        height: 150px;
-        padding: 0 50px;
-        gap: 2px;
-    }
+@media (max-width: 700px) {
+  .home-location {
+    height: 53vh;
+  }  
 }

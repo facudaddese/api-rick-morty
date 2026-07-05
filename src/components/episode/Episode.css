@@ -1,47 +1,52 @@
 .section-episode {
-    grid-template-areas:
-        "aside episodes"
-    ;
+  grid-template-areas: "aside episodes";
 }
 
-@media (max-width:1480px) {
-    .section-episode {
-        height: 87vh;
-    }
-
-    .home-episode {
-        height: 77vh;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
+@media (max-width: 1440px) {
+  .home-episode {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 
-@media (max-width:1024px) {
-    .section-episode {
-        height: 85vh;
-    }
+@media (max-width: 1024px) {
+  .section-episode {
+    height: 85vh;
+  }
 
-    .home-episode {
-        height: 72vh;
-    }
+  .home-episode {
+    height: 72vh;
+  }
 }
 
 @media (max-width: 768px) {
-    .section-episode {
-        grid-template-areas:
-            "aside aside"
-            "episodes episodes";
-        grid-template-rows: auto 1fr;
-        height: 100%;
-    }
+  .section-episode {
+    grid-template-areas:
+      "aside aside"
+      "episodes episodes";
+  }
 
-    .section-episode:first-child {
-        padding: 0;
-    }
+  .home-episode {
+    height: 61vh;
+  }
 
-    .aside-episode {
-        width: 100%;
-        height: 150px;
-        padding: 0 50px;
-        gap: 2px;
-    }
+  .section-episode:first-child {
+    padding: 0;
+  }
+
+  .aside-episode {
+    width: 100%;
+    height: 100px;
+    padding: 10px 50px 0 50px;
+    gap: 2px;
+  }
+}
+
+@media (max-width: 700px) {
+  .section-episode {
+    height: 80vh;
+  }
+
+  .info-episode {
+    padding: 0;
+  }
 }

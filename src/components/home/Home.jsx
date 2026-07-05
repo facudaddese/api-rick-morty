@@ -7,7 +7,7 @@ const Home = ({ data, error, loading, input, debounce, filters, handleFilters, c
     if (loading) return <p className='flex h-100 items-center justify-center'>Loading characters...</p>
 
     return (
-        <section className="grid [grid-template-areas:'aside_layout'] items-center grid-cols-[250px_1fr] overflow-hidden section-home h-163">
+        <section className="grid [grid-template-areas:'aside_layout'] items-center grid-cols-[250px_1fr] overflow-hidden section-home h-163 home-container">
             <Aside filters={filters} handleFilters={handleFilters} clearFilters={clearFilters} />
             {
                 !error ?
