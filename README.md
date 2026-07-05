@@ -69,4 +69,4 @@ Se consume la API pública de Rick and Morty para obtener información de person
 
 **Facundo D'addese** - Estudiante de Licenciatura en Sistemas – Universidad Nacional de Lanús.
 
-CV | [facundo.daddese19@gmail.com](mailto:facundo.daddese19@gmail.com)
+[CV](https://drive.google.com/file/d/1dplrGFP7DhLXLQCuj2sA-66sAV0yER_g/view?usp=sharing) | [facundo.daddese19@gmail.com](mailto:facundo.daddese19@gmail.com)
