@@ -2,9 +2,9 @@
 
 *,
 ::placeholder {
-    letter-spacing: 3px;
-    color: #00bcd4;
-    paint-order: stroke fill;
-    -webkit-text-stroke: .1rem #AADC28;
-    font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 3px;
+  color: #00bcd4;
+  paint-order: stroke fill;
+  -webkit-text-stroke: 0.1rem #aadc28;
+  font-family: "Rajdhani", sans-serif;
 }

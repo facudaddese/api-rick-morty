@@ -4,8 +4,13 @@ import { useDebounce } from "../../hooks/useDebounce";
 import { useFetch } from "../../hooks/useFetch";
 import { useFilter } from "../../hooks/useFilter";
 import { usePage } from "../../hooks/usePage";
+import type { Character } from "../../types/Character";
 
-export const CharacterProvider = ({ children }) => {
+export const CharacterProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const { page, handlePrev, handleNext, setPage } = usePage();
   const { input, handleInput } = useInput(setPage);
   const { debounce } = useDebounce(input);
@@ -17,13 +22,13 @@ export const CharacterProvider = ({ children }) => {
   const { status, species, gender } = filters;
 
   const params = new URLSearchParams();
-  params.set("page", page);
+  params.set("page", page.toString());
   if (debounce.trim()) params.set("name", debounce.trim());
   if (status) params.set("status", status);
   if (species) params.set("species", species);
   if (gender) params.set("gender", gender);
 
-  const { data, error, loading } = useFetch(
+  const { data, error, loading } = useFetch<Character>(
     `https://rickandmortyapi.com/api/character?${params.toString()}`,
   );
 

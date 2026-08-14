@@ -1,6 +1,6 @@
 # Rick and Morty Multiverse
 
-Aplicación web desarrollada con **React** y **Tailwind CSS** que permite explorar el universo de Rick and Morty consumiendo datos desde su API oficial. Los usuarios pueden buscar personajes por nombre, filtrarlos por estado, especie y género, navegar entre páginas de resultados y consultar información detallada sobre episodios y ubicaciones de la serie. [Ver sitio](https://rickmorty-multiverse.vercel.app/)
+Aplicación web desarrollada con **React**, **TypeScript** y **Tailwind CSS** que permite explorar el universo de Rick and Morty consumiendo datos desde su API oficial. Los usuarios pueden buscar personajes por nombre, filtrarlos por estado, especie y género, navegar entre páginas de resultados y consultar información detallada sobre episodios y ubicaciones de la serie. [Ver sitio](https://rickmorty-multiverse.vercel.app/)
 
 ## Funcionalidades
 
@@ -40,6 +40,7 @@ Aplicación web desarrollada con **React** y **Tailwind CSS** que permite explor
 ## Tecnologías utilizadas
 
 - React
+- TypeScript
 - Tailwind CSS   
 - JavaScript (ES6+)  
 - React Router DOM  
@@ -49,10 +50,12 @@ Aplicación web desarrollada con **React** y **Tailwind CSS** que permite explor
     
 ## Conceptos aplicados
 
-- Componentización
+- Componentización con React
+- Tipado estático con TypeScript.
 - Manejo de estado global con Context API
-- Custom Hooks reutilizables
+- Desarrollo de Custom Hooks reutilizables.
 - Consumo de APIs REST
+- Uso de tipos e interfaces para modelar respuestas de API.
 - Renderizado dinámico de datos
 - Routing con React Router DOM
 - Diseño responsive Mobile First

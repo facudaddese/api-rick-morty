@@ -1,0 +1,63 @@
+import { useState } from "react";
+import { useAllPages } from "../../hooks/useAllPages";
+import AsideLocation from "../asideLocation/AsideLocation";
+import { useFetch } from "../../hooks/useFetch";
+import CharacterCard from "../characterCard/CharacterCard";
+import "./Location.css";
+import type {
+  ApiResponse,
+  Results as CharacterResults,
+} from "../../types/Character";
+import type { Results as LocationResults } from "../../types/Locations";
+
+const Location = () => {
+  const {
+    data: locations,
+    error,
+    loading,
+  } = useAllPages<LocationResults>(`https://rickandmortyapi.com/api/location`);
+  const [location, setLocation] = useState<LocationResults | null>(null);
+  const currentLocation = location || locations?.[0];
+  const id = currentLocation?.residents
+    ? currentLocation.residents.map((url) => url.split("/").pop()).join(",")
+    : null;
+  const { data: resident } = useFetch<ApiResponse<CharacterResults>>(
+    id ? `https://rickandmortyapi.com/api/character/${id}` : null,
+  );
+
+  if (error) return <p>{error}</p>;
+  if (loading) return <p>Loading locations...</p>;
+
+  return (
+    <section className="grid [grid-template-areas:'aside_locations'] h-full grid-cols-[250px_1fr] overflow-hidden section-location">
+      <AsideLocation locations={locations} setLocation={setLocation} />
+      <div className="[grid-area:locations] h-full min-h-0">
+        <div className="flex flex-col items-center justify-center gap-3 pb-4 info-container">
+          <h1 className="text-center">
+            <span className="underline">Location</span>: {currentLocation?.name}
+          </h1>
+          <h2>
+            <span className="underline">Dimension</span>:{" "}
+            {currentLocation?.dimension}
+          </h2>
+          <h2>
+            <span className="underline">Type</span>: {currentLocation?.type}
+          </h2>
+        </div>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-167 overflow-y-auto overflow-x-hidden home-location">
+          {resident?.results.map((character) => (
+            <CharacterCard
+              key={character.id}
+              img={character.image}
+              name={character.name}
+              status={character.status}
+              species={character.species}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Location;
