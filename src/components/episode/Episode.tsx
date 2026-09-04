@@ -5,7 +5,7 @@ import { useFetch } from "../../hooks/useFetch";
 import CharacterCard from "../characterCard/CharacterCard";
 import "./Episode.css";
 import type {
-  ApiResponse,
+  FetchResult,
   Results as CharacterResults,
 } from "../../types/Character";
 import type { Results as EpisodeResults } from "../../types/Episodes";
@@ -21,12 +21,18 @@ const Episode = () => {
   const id = currentEpisode?.characters
     .map((url: string) => url.split("/").pop())
     .join(",");
-  const { data: character } = useFetch<ApiResponse<CharacterResults>>(
+  const { data: character } = useFetch<FetchResult<CharacterResults>>(
     id ? `https://rickandmortyapi.com/api/character/${id}` : null,
   );
 
   if (error) return <p>{error}</p>;
   if (loading) return <p>Loading episodes...</p>;
+
+  const characters = character
+    ? Array.isArray(character)
+      ? character
+      : [character]
+    : [];
 
   return (
     <section className="grid grid-cols-[250px_1fr] h-full overflow-hidden section-episode">
@@ -42,7 +48,7 @@ const Episode = () => {
           </h2>
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-170 overflow-y-auto overflow-x-hidden home-episode">
-          {character?.results.map((c) => (
+          {characters.map((c) => (
             <CharacterCard
               key={c.id}
               img={c.image}

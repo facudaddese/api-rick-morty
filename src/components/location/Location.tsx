@@ -5,7 +5,7 @@ import { useFetch } from "../../hooks/useFetch";
 import CharacterCard from "../characterCard/CharacterCard";
 import "./Location.css";
 import type {
-  ApiResponse,
+  FetchResult,
   Results as CharacterResults,
 } from "../../types/Character";
 import type { Results as LocationResults } from "../../types/Locations";
@@ -21,12 +21,18 @@ const Location = () => {
   const id = currentLocation?.residents
     ? currentLocation.residents.map((url) => url.split("/").pop()).join(",")
     : null;
-  const { data: resident } = useFetch<ApiResponse<CharacterResults>>(
+  const { data: resident } = useFetch<FetchResult<CharacterResults>>(
     id ? `https://rickandmortyapi.com/api/character/${id}` : null,
   );
 
   if (error) return <p>{error}</p>;
   if (loading) return <p>Loading locations...</p>;
+
+  const residents = resident
+    ? Array.isArray(resident)
+      ? resident
+      : [resident]
+    : [];
 
   return (
     <section className="grid [grid-template-areas:'aside_locations'] h-full grid-cols-[250px_1fr] overflow-hidden section-location">
@@ -45,7 +51,7 @@ const Location = () => {
           </h2>
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] h-167 overflow-y-auto overflow-x-hidden home-location">
-          {resident?.results.map((character) => (
+          {residents.map((character) => (
             <CharacterCard
               key={character.id}
               img={character.image}

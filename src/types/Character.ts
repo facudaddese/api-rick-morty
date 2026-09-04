@@ -70,3 +70,5 @@ export interface ApiResponse<T> {
   info: Info;
   results: T[];
 }
+
+export type FetchResult<T> = T | T[];
